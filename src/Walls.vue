@@ -3,14 +3,14 @@
 
   const wallStore = useWallsStore()
 
-  const toggle = {
+  const toggle:Record<Wall, Wall> = {
     'R': '.',
     'L': 'R',
     '.': 'L',
   }
-
+  type Wall = '.' | 'R' | 'L'
   function toggleCell(posy: number, posx: number) {
-    wallStore.walls[posy]![posx] = toggle[wallStore.walls[posy][posx]]
+    wallStore.walls[posy]![posx] = toggle[wallStore.walls[posy]![posx]!]
   }
 </script>
 

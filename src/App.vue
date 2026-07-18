@@ -8,8 +8,8 @@
 
   const problemInput = ref("10 10\n5 5")
   const gridInput     = computed(() => problemInput.value.split('\n')[0]?.split(' '))
-  const gridRows      = computed(() => gridInput.value?.[0])
-  const gridColumns   = computed(() => gridInput.value?.[1])
+  const gridRows      = computed(() => Number(gridInput.value?.[0]))
+  const gridColumns   = computed(() => Number(gridInput.value?.[1]))
   const robotStartPos = computed(() => problemInput.value.split('\n')[1]?.split(' '))
   const robotStartX   = computed(() => Number(robotStartPos.value?.[0])-1)
   const robotStartY   = computed(() => Number(robotStartPos.value?.[1])-1)
@@ -22,10 +22,10 @@
       return wallsStore.walls.map(row => row.join('')).join('\n')
     },
     set(gridStr) {
-      wallsStore.walls = gridStr.split('\n').map(row => row.split(''))
+      wallsStore.walls = gridStr.split('\n').map(row => row.split('')) as Wall[][]
     }
   })
-
+  type Wall = '.' | 'R' | 'L'
   const score = computed(() => robotStore.visited.flat().filter(Boolean).length)
 
   function resetGrid() {

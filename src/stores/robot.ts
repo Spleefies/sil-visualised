@@ -64,7 +64,7 @@ export const useRobotStore = defineStore('robot', () => {
   let lastTime = 0
   let accumulator = 0
 
-  function moveRobot(time) {
+  function moveRobot(time: number) {
   if (!moving.value) {
     lastTime = 0
     accumulator = 0
@@ -75,7 +75,7 @@ export const useRobotStore = defineStore('robot', () => {
 
   const rows = wallsStore.walls.length
   const cols = wallsStore.walls[0]?.length
-  const cells = Math.sqrt(rows * cols)
+  const cells = Math.sqrt(rows * cols!)
 
   const delta = (time - lastTime) / 1000 // seconds
   lastTime = time
