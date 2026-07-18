@@ -46,10 +46,8 @@
   resetGrid()
   resetRobot()
 
-  watch(problemInput, () => {
-    resetGrid()
-    resetRobot()
-  })
+  watch(problemInput, resetRobot)
+  watch([gridRows, gridColumns], resetGrid) 
 
 </script>
 
