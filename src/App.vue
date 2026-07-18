@@ -29,7 +29,7 @@
   const score = computed(() => robotStore.visited.flat().filter(Boolean).length)
 
   function resetGrid() {
-    gridString.value = Array.from({ length: gridColumns.value }, () => '.'.repeat(gridRows.value)).join('\n')
+    gridString.value = Array.from({ length: gridRows.value }, () => '.'.repeat(gridColumns.value)).join('\n')
   }
 
   function copyGrid() {
