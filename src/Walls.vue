@@ -10,7 +10,7 @@
   }
   type Wall = '.' | 'R' | 'L'
   function toggleCell(posy: number, posx: number) {
-    wallStore.walls[posy]![posx] = toggle[wallStore.walls[posy]![posx]!]
+    wallStore.walls[posy]![posx] = toggle[wallStore.walls[posy]![posx]!] ?? '.'
   }
 </script>
 
