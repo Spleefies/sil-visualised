@@ -38,8 +38,8 @@ export const useRobotStore = defineStore('robot', () => {
     visited.value[pos.value[0]]![pos.value[1]] = true
     const vector = toVector(dir.value)
     const nextPos:Vector = [pos.value[0]!+vector[0],pos.value[1]!+vector[1]]
-    if ( nextPos[1] < 0 || nextPos[1] >= wallsStore.walls.length ||
-         nextPos[0] < 0 || nextPos[0] >= wallsStore.walls[0]!.length
+    if ( nextPos[1] < 0 || nextPos[1] >= wallsStore.walls[0]!.length ||
+         nextPos[0] < 0 || nextPos[0] >= wallsStore.walls.length
     ) {
       moving.value = false
       return
